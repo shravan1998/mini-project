@@ -28,6 +28,9 @@ app.get('/train',function(req,res){
 app.get('/history',function(req,res){
     res.render('history');
 });
+app.get('/clerk',function(req,res){
+    res.render('clerk');
+});
 app.set('views',__dirname);
 app.set('view engine','ejs');
 app.post('/',function(req,res){
@@ -118,7 +121,11 @@ app.post('/train',function(req,res) {
     });
 
 });
-
+connection.query("CREATE TABLE IF NOT EXISTS clerk(F_NAME VARCHAR(255) UNIQUE,L_NAME VARCHAR(255) UNIQUE,COUNTER_NUM INT PRIMARY KEY)",function(err){
+    if(err){
+        throw err;
+    }
+});
 
 app.listen('3360',function(){
     console.log("connected");

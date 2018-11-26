@@ -25,14 +25,14 @@
               <li><a href="train">Train</a></li>
               <li><a href="station">Station</a></li>
               <li><a href="admin">Admin</a></li>
-              <li><a href="history">History</a></li>
+              
               <li><a href="login">Logout</a></li>
             </ul>
           </div>
         </nav>
     
         <div class="row">
-                <form class="col s12">
+                <form class="col s12" action="/clerk" method="POST">
                   <div class="row">
                     <div class="input-field col s6">
                       <input id="firstname" type="text" class="validate">
@@ -54,7 +54,7 @@
                                 </div>
                               </div>
                               
-                  <a class="waves-effect waves-light  btn" color="indigo;">submit</a>
+                  <input type="submit" class="waves-effect waves-light  btn" color="indigo;" name="Submit" value="Submit"></a>
               </div>
             
 
