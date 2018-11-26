@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+      </style> 
+    <title>Railway ticket booking</title>
+    
+  </head>
+
+  <body>
+      <nav class="light-blue">
+          <div class="nav-wrapper">
+              <a class="brand-logo">Railway Ticket Booking</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                
+                <li><a href="register">Register</a></li>
+          </div>
+        </nav>
+    
+        <div class="row">
+                <form class="col s12" action="/login" method="POST">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="username" type="text" class="validate" name="username">
+                      <label for="username" style="color:black">Username</label>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                          <input id="password" type="password" class="validate" name="password">
+                          <label for="password">Password</label>
+                        </div>
+                 
+              </div>
+              <input type="submit" class="waves-effect waves-light  btn" color="indigo;" name="log_in" value="Log In">
+
+              
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   
+  </body>
+</html>

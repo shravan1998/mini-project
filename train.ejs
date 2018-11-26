@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+      </style> 
+    <title>Railway ticket booking</title>
+    
+  </head>
+
+  <body>
+      <nav class="light-blue">
+          <div class="nav-wrapper">
+              <a class="brand-logo">Railway Ticket Booking</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                
+              <li><a href="passenger">Passenger</a></li>
+              <li><a href="clerk">Clerk</a></li>
+              <li><a href="station">Station</a></li>
+              <li><a href="admin">Admin</a></li>
+              <li><a href="history">History</a></li>
+              <li><a href="login">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+    
+        <div class="row">
+                <form class="col s12" action="/train" method="POST">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input id="firstname" type="text" class="validate" name="tname">
+                      <label for="firstname" style="color:black">Name</label>
+                    </div>
+                   
+                  </div>
+                  
+               
+        
+                  <div class="row">
+                        <div class="input-field col s6">
+                          <input id="source" type="text" class="validate" name="source">
+                          <label for="source" style="color:black">Source</label>
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                            <div class="input-field col s6">
+                              <input id="destination" type="text" class="validate" name="destination">
+                              <label for="destination" style="color:black">Destination</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                                <div class="input-field col s6">
+                                  <input id="train number" type="number" class="validate" name="tnum">
+                                  <label for="train number" style="color:black" >Train number</label>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="input-field col s6">
+                                  <input id="number of seats" type="number" class="validate" name="seats">
+                                  <label for="number of seats" style="color:black" >Number of seats</label>
+                                </div>
+                              </div>
+                  <input type="submit" class="waves-effect waves-light  btn" color="indigo;" value="submit"></a>
+              </div>
+            
+
+              
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   
+  </body>
+</html>
