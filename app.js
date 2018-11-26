@@ -110,15 +110,13 @@ app.post('/train',function(req,res) {
         if(err){
             throw err;
         }
-        else{
-                
-                 res.render('history.ejs',{ train:results});
-                 
-                
+        else{                    
+                 res.render('history.ejs',{ train: results});
+              
             }
         
     });
-    
+
 });
 
 

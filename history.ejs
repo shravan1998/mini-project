@@ -25,9 +25,10 @@
           </div>
         </nav>
         <div>
-            <% train.forEarch(function(x){ %>
+          
+            <% train.forEach(function(x){ %>
             <form>
-               <div>Train Name:<%= x.TNAME %></div> 
+               <div>Train Name:<%- x.TNAME %></div> 
                <div>Source:<%= x.SOURCE %></div>
                <div>Destination:<%= x.DEST %></div>
                <div>Train Number:<%= x.TNUM %></div> 
