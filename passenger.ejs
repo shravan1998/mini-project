@@ -34,11 +34,11 @@
                 <form class="col s12" action="/passenger" method="POST">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="firstname" type="text" class="validate">
+                      <input id="firstname" type="text" class="validate" name="fname">
                       <label for="firstname" style="color:black">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                      <input id="lastname" type="text" class="validate">
+                      <input id="lastname" type="text" class="validate" name="lname">
                       <label for="lastname" style="color:black">Last Name</label>
                     </div>
                   </div>
@@ -49,37 +49,42 @@
                       
                       <div class="row">
                             <div class="input-field col s6">
-                              <input id="compartment" type="text" class="validate">
+                              <input id="compartment" type="text" class="validate" name="comp">
                               <label for="compartment" style="color:black">Compartment</label>
                             </div>
                           </div>
                           <div class="row">
                                 <div class="input-field col s6">
-                                  <input id="ticket number" type="number" class="validate">
+                                  <input id="ticket number" type="number" class="validate" name="tnum">
                                   <label for="ticket number" style="color:black">Ticket number</label>
                                 </div>
                               </div>
-                              <input type="date" class="datepicker" />
-                              <input type="time" class="timepicker" />
+                              <input type="date" class="datepicker" name="sub_date"/>
+                              <input type="time" class="timepicker" name="sub_time"/>
                               <div class="row">
                                 <div class="input-field col s6">
-                                  <input id="application number" type="number" class="validate">
+                                  <input id="application number" type="number" class="validate" name="appnum">
                                   <label for="application number" style="color:black">Application number</label>
                                 </div>
                                 <div class="row">
                                   <div class="input-field col s6">
-                                    <input id="counter number" type="number" class="validate">
+                                    <input id="counter number" type="number" class="validate" name="cnum">
                                     <label for="counter number" style="color:black">Counter number</label>
                                   </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s6">
-                                      <input id="user id" type="number" class="validate">
+                                      <input id="user id" type="number" class="validate" name="uid">
                                       <label for="user id" style="color:black">User id</label>
                                     </div>
                                   </div>
-
-                  <a class="waves-effect waves-light  btn" color="indigo;">submit</a>
+                                <div class="row">
+                                  <div class="input-field col s6">
+                                    <input id="Train number" type="number" class="validate" name="train_num">
+                                    <label for="Train number" style="color:black">Train Number</label>
+                                  </div>
+                                </div>
+                  <input type="submit" class="waves-effect waves-light  btn" color="indigo;" name="submit" value="submit"></a>
               </div>
             
 

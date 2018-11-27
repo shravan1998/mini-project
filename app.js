@@ -1,8 +1,8 @@
 const mysql = require("mysql");
 const express = require("express");
 const bodyParser = require("body-parser");
-var path=require("path");
 var ejs = require("ejs");
+var path = require("path");
 const connection = mysql.createConnection({
     host: "localhost",
     username: "root",
@@ -39,6 +39,9 @@ app.get('/passenger',function(req,res){
 });
 app.get('/station',function(req,res){
     res.render('station');
+});
+app.get('/passhistory',function(req,res){
+    res.render('passhistory');
 });
 app.set('views',__dirname);
 app.set('view engine','ejs');
@@ -122,7 +125,8 @@ app.post('/train',function(req,res) {
         if(err){
             throw err;
         }
-        else{                    
+        else{     
+                
                  res.render('history.ejs',{ train: results});
               
             }
@@ -174,7 +178,64 @@ connection.query("CREATE TABLE IF NOT EXISTS station(PLATFORM INT,T_ARRIVE TIME,
         throw err;
     }
 });
-app.post()
+app.post('/station',function(req,res){
+    var pnum = req.body.pnum;
+    var atime = req.body.atime;
+    var dtime = req.body.dtime;
+    var tnum = req.body.tnum;
+    var sql="INSERT INTO station VALUES('"+pnum+"','"+atime+"','"+dtime+"','"+tnum+"')";
+    connection.query(sql,function(err){
+        if(err){
+            throw err;
+        }
+    });
+});
+//connection.query("CREATE TABLE passenger(F_NAME VARCHAR(255) UNIQUE,L_NAME VARCHAR(255) UNIQUE,COMPTMENT VARCHAR(255),TIC_NUM INT PRIMARY KEY,SUB_DATE DATE,SUB_TIME TIME,APP_NUM INT,CNUM INT,USER_ID INT,FOREIGN KEY(APP_NUM) REFERENCES admin(APP_NUM) ON DELETE CASCADE,FOREIGN KEY(CNUM) REFERENCES clerk(COUNTER_NUM) ON DELETE CASCADE,FOREIGN KEY(USER_ID) REFERENCES login(USER_ID) ON DELETE CASCADE)",function(err){
+  //  if(err){
+    //    throw err;
+   // }
+//});
+app.post('/passenger',function(req,res){
+    var fname = req.body.fname;
+    var lname = req.body.lname;
+    var comp = req.body.comp;
+    var tnum = req.body.tnum;
+    var subdate = req.body.sub_date;
+    var subtime = req.body.sub_time;
+    var appnum = req.body.appnum;
+    var cnum = req.body.cnum;
+    var uid = req.body.uid;
+    var train_num = req.body.train_num;
+    var sql="INSERT INTO passenger VALUES('"+fname+"','"+lname+"','"+comp+"','"+tnum+"','"+subdate+"','"+subtime+"','"+appnum+"','"+cnum+"','"+uid+"','"+train_num+"')";
+    connection.query(sql,function(err){
+        if(err){
+            throw err;
+        }
+    connection.query("SELECT * FROM passenger",function(err,results,fields){
+            if(err){
+                throw err;
+            }
+            else{
+                res.render('passhistory.ejs',{passengers: results});
+            }
+        });
+    });
+});
+//connection.query("ALTER TABLE passenger ADD COLUMN TNUM INT",function(err){
+ //   if(err){
+//     throw err;
+  //  }
+//});
+//connection.query("ALTER TABLE passenger ADD CONSTRAINT fk_tnum FOREIGN KEY(TNUM) REFERENCES train(TNUM)",function(err){
+ //   if(err){
+ //       throw err;
+ //   }
+//});
+connection.query("UPDATE TABLE train SET train.AVAIL_SEATS=train.SEATS-COUNT(passenger.TNUM) FROM train,passenger)",function(err){
+    if(err){
+        throw err;
+    }
+});
 app.listen('3360',function(){
     console.log("connected");
 });

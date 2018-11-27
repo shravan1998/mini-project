@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+    
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+      </style> 
+    <title>Railway ticket booking</title>
+    
+  </head>
+
+  <body>
+      <nav class="light-blue">
+          <div class="nav-wrapper">
+              <a class="brand-logo">Railway Ticket Booking</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                
+              <li><a href="passenger">Passenger</a></li>
+              <li><a href="train">Train</a></li>
+              <li><a href="station">Station</a></li>
+              <li><a href="admin">Admin</a></li>
+              <li><a href="clerk">CLerk</a></li>
+              <li><a href="login">Logout</a></li>
+          </div>
+        </nav>
+        <div>
+          
+            <% passengers.forEach(function(x){ %>
+  
+            <form>
+               <div>First Name:<%= x.F_NAME %></div> 
+               <div>Last Name:<%= x.L_NAME %></div>
+               <div>Compartment:<%= x.COMPTMENT %></div>
+               <div>Ticket Number:<%= x.TIC_NUM %></div>
+               <div>Date:<%= x.SUB_DATE %></div> 
+               <div>Time:<%= x.SUB_TIME %></div>
+               <div>Application Number:<%= x.APP_NUM %></div>
+               <div>Counter Number:<%= x.CNUM %></div>
+               <div>User id:<%= x.USER_ID %></div> 
+               <div>Train Number:<%= x.TNUM %></div>
+              <input type="submit" class="waves-effect waves-light  btn" name="Delete" value="Delete">
+            </form>
+            <% }); %> 
+        </div>
+    
+        
+
+              
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+   
+  </body>
+</html>
