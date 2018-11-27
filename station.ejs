@@ -32,30 +32,27 @@
         </nav>
     
         <div class="row">
-                <form class="col s12">
-                 
-                  
-               
-        
-                  
+                <form class="col s12" action="/station" method="POST">
                           <div class="row">
                                 <div class="input-field col s6">
-                                  <input id="platform number" type="number" class="validate">
+                                  <input id="platform number" type="number" class="validate" name="pnum">
                                   <label for="platform number" style="color:black">Platform number</label>
                                 </div>
                               </div>
                               <label for="Train arrival" style="color:black">Train arrival</label>
-                              <input type="time" class="timepicker" />
+                              <input type="time" class="timepicker" / name="atime">
                              
                               <label for="Train departure" style="color:black">Train departure</label>
-                              <input type="time" class="timepicker" />
+                              <input type="time" class="timepicker" / name="dtime">
+                              <div class="row">
+                                <div class="input-field col s6">
+                                  <input id="train number" type="number" class="validate" name="tnum">
+                                  <label for="train number" style="color:black">Train number</label>
+                                </div>
+                              </div>
                              
-                  <a class="waves-effect waves-light  btn" color="indigo;">submit</a>
+                  <input class="waves-effect waves-light  btn" color="indigo;" name="submit" value="Submit">
               </div>
-            
-
-              
-
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
    

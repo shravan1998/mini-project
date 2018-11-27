@@ -32,14 +32,14 @@
         </nav>
     
         <div class="row">
-                <form class="col s12">
+                <form class="col s12" action="/admin" method="POST">
                   <div class="row">
                     <div class="input-field col s6">
-                      <input id="firstname" type="text" class="validate">
+                      <input id="firstname" type="text" class="validate" name="fname">
                       <label for="firstname" style="color:black">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                      <input id="lastname" type="text" class="validate">
+                      <input id="lastname" type="text" class="validate" name="lname">
                       <label for="lastname" style="color:black">Last Name</label>
                     </div>
                   </div>
@@ -49,14 +49,14 @@
                   
                           <div class="row">
                                 <div class="input-field col s6">
-                                  <input id="application number" type="number" class="validate">
+                                  <input id="application number" type="number" class="validate" name="appnum">
                                   <label for="application number" style="color:black">Application number</label>
                                 </div>
                               </div>
                               <label for="Submission date" style="color:black">Submission date</label>
-                              <input type="date" class="datepicker" />
+                              <input type="date" class="datepicker" name="subdate"/>
                               
-                  <a class="waves-effect waves-light  btn" color="indigo;">submit</a>
+                  <input type="submit" class="waves-effect waves-light  btn" color="indigo;" value="Submit" name="Submit"></a>
               </div>
             
 

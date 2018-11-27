@@ -31,6 +31,15 @@ app.get('/history',function(req,res){
 app.get('/clerk',function(req,res){
     res.render('clerk');
 });
+app.get('/admin',function(req,res){
+    res.render('admin');
+});
+app.get('/passenger',function(req,res){
+    res.render('passenger');
+});
+app.get('/station',function(req,res){
+    res.render('station');
+});
 app.set('views',__dirname);
 app.set('view engine','ejs');
 app.post('/',function(req,res){
@@ -126,7 +135,46 @@ connection.query("CREATE TABLE IF NOT EXISTS clerk(F_NAME VARCHAR(255) UNIQUE,L_
         throw err;
     }
 });
-
+app.post('/clerk',function(req,res){
+    var fname = req.body.firstname;
+    var lname = req.body.lastname;
+    var counter = req.body.counter;
+    sql="INSERT INTO clerk VALUES('"+fname+"','"+lname+"','"+counter+"')";
+    connection.query(sql,function(err){
+    if(err){
+        throw err;
+    }
+    });
+    
+});
+/*connection.query("ALTER TABLE train ADD AVAIL_SEATS INT",function(err){
+    if(err){
+        throw err;
+    }
+});*/
+connection.query("CREATE TABLE IF NOT EXISTS admin(F_NAME VARCHAR(255) UNIQUE,L_NAME VARCHAR(255) UNIQUE,APP_NUM INT PRIMARY KEY,SUB_DATE DATE NOT NULL)",function(err){
+    if(err){
+        throw err;
+    }
+});
+app.post('/admin',function(req,res){
+    var fname = req.body.fname;
+    var lname = req.body.lname;
+    var appnum = req.body.appnum;
+    var subdate = req.body.subdate;
+    var sql = "INSERT INTO admin VALUES('"+fname+"','"+lname+"','"+appnum+"','"+subdate+"')";
+    connection.query(sql,function(err){
+        if(err){
+            throw err;
+        }
+    });
+});
+connection.query("CREATE TABLE IF NOT EXISTS station(PLATFORM INT,T_ARRIVE TIME,T_DEPART TIME,TNUM INT,FOREIGN KEY(TNUM) REFERENCES train(TNUM))",function(err){
+    if(err){
+        throw err;
+    }
+});
+app.post()
 app.listen('3360',function(){
     console.log("connected");
 });
