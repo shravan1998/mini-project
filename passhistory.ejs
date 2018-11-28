@@ -33,22 +33,29 @@
           
             <% passengers.forEach(function(x){ %>
   
-            <form>
+            
                <div>First Name:<%= x.F_NAME %></div> 
                <div>Last Name:<%= x.L_NAME %></div>
-               <div>Compartment:<%= x.COMPTMENT %></div>
+               <div>Compartment:<%= x.COMPTMENT %>></div>
                <div>Ticket Number:<%= x.TIC_NUM %></div>
                <div>Date:<%= x.SUB_DATE %></div> 
                <div>Time:<%= x.SUB_TIME %></div>
                <div>Application Number:<%= x.APP_NUM %></div>
-               <div>Counter Number:<%= x.CNUM %></div>
+               <div>Counter Number:<%= x.CNUM %> </div>
                <div>User id:<%= x.USER_ID %></div> 
                <div>Train Number:<%= x.TNUM %></div>
-              <input type="submit" class="waves-effect waves-light  btn" name="Delete" value="Delete">
-            </form>
+              <div>----------------------------------</div>
             <% }); %> 
         </div>
-    
+        <form class="col s12" action="/passhistory" method="POST">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="ticket number" type="number" class="validate" name="ticnum">
+              <label for="ticket number" style="color:black">Enter Ticket Number To Delete</label>
+            </div>
+          </div>
+          <input type="submit" class="waves-effect waves-light  btn" name="Delete" value="Delete">
+        </form>
         
 
               

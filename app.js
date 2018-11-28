@@ -111,7 +111,7 @@ app.post('/train',function(req,res) {
     var seats = req.body.seats;
     var tnum = req.body.tnum;
     
-    var sql = "INSERT INTO train VALUES('"+tname+"','"+source+"','"+dest+"','"+tnum+"','"+seats+"')";
+    var sql = "INSERT INTO train(TNAME,SOURCE,DEST,TNUM,SEATS) VALUES('"+tname+"','"+source+"','"+dest+"','"+tnum+"','"+seats+"')";
     connection.query(sql,function(err){
         if(!err){
             console.log("Inserted");
@@ -189,6 +189,9 @@ app.post('/station',function(req,res){
             throw err;
         }
     });
+    connection.query("SELECT * FROM station",function(err,results,fields){
+        res.render('stationhistory.ejs',{ station : results});
+    });
 });
 //connection.query("CREATE TABLE passenger(F_NAME VARCHAR(255) UNIQUE,L_NAME VARCHAR(255) UNIQUE,COMPTMENT VARCHAR(255),TIC_NUM INT PRIMARY KEY,SUB_DATE DATE,SUB_TIME TIME,APP_NUM INT,CNUM INT,USER_ID INT,FOREIGN KEY(APP_NUM) REFERENCES admin(APP_NUM) ON DELETE CASCADE,FOREIGN KEY(CNUM) REFERENCES clerk(COUNTER_NUM) ON DELETE CASCADE,FOREIGN KEY(USER_ID) REFERENCES login(USER_ID) ON DELETE CASCADE)",function(err){
   //  if(err){
@@ -220,6 +223,12 @@ app.post('/passenger',function(req,res){
             }
         });
     });
+    /*var call="CALL delete[("+tnum+")]";
+    connection.query(call,function(err){
+        if(err){
+            throw err;
+        }
+    });*/
 });
 //connection.query("ALTER TABLE passenger ADD COLUMN TNUM INT",function(err){
  //   if(err){
@@ -231,10 +240,50 @@ app.post('/passenger',function(req,res){
  //       throw err;
  //   }
 //});
-connection.query("UPDATE TABLE train SET train.AVAIL_SEATS=train.SEATS-COUNT(passenger.TNUM) FROM train,passenger)",function(err){
-    if(err){
-        throw err;
-    }
+//connection.query("UPDATE `train` SET `train`.`AVAIL_SEATS`=`train`.`SEATS`-COUNT(passenger.TNUM) WHERE train.TNUM=passenger.TNUM",function(err){
+  //  if(err){
+    //    throw err;
+    //}
+// });
+app.post('/passhistory',function(req,res){
+    var tic_num=req.body.ticnum;
+    var sql="CALL `delete`("+tic_num+")";
+    connection.query(sql,function(err){
+        if(err){
+            throw err;
+        }
+        else{
+            res.redirect('/passenger');
+        }
+    });
+   /* connection.query("SELECT * FROM passenger",function(err,results,fields){
+        if(err){
+            throw err;
+        }
+        else{
+            res.render('passhistory.ejs',{passengers:results});
+        }
+    });*/
+});
+app.post('/history',function(req,res){
+    var tnum=req.body.tnum;
+    var sql="CALL `deltrain`("+tnum+")";
+    connection.query(sql,function(err){
+        if(err){
+            throw err;
+        }
+        else{
+            res.redirect('/train');
+        }
+    });
+   /* connection.query("SELECT * FROM passenger",function(err,results,fields){
+        if(err){
+            throw err;
+        }
+        else{
+            res.render('passhistory.ejs',{passengers:results});
+        }
+    });*/
 });
 app.listen('3360',function(){
     console.log("connected");

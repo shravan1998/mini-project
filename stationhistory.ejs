@@ -31,30 +31,21 @@
         </nav>
         <div>
           
-            <% train.forEach(function(x){ %>
+            <% station.forEach(function(x){ %>
   
             <form>
-               <div>Train Name:<%= x.TNAME %></div> 
-               <div>Source:<%= x.SOURCE %></div>
-               <div>Destination:<%= x.DEST %></div>               
-               <div>Train Number:<%= x.TNUM %></div> 
-               <div>Number Of Seats:<%= x.SEATS %></div>
-               <div>Seats Available:<%= x.AVAIL_SEATS %></div> 
               
+               <div>Platform:<textarea disabled><%= x.PLATFORM %></textarea></div>
+               <div>Arrival time:<textarea disabled><%= x.T_ARRIVE %></textarea></div>               
+               <div>Departure Time:<textarea disabled><%= x.T_DEPART %></textarea></div> 
+               <div>Train Number:<textarea disabled><%= x.TNUM %></textarea></div>
+                
+            
             </form>
-            <div>------------------------------------------------------------------------------------</div>
             <% }); %> 
         </div>
     
-        <form class="col s12" action="/history" method="POST">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="train number" type="number" class="validate" name="tnum">
-              <label for="train number" style="color:black">Enter Train Number To Delete</label>
-            </div>
-          </div>
-         <input type="submit" class="waves-effect waves-light  btn" name="Delete" value="Delete">
-       </form>
+        
 
               
 
