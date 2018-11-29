@@ -30,22 +30,39 @@
           </div>
         </nav>
         <div>
-          
+            <table>
+                <thead>
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Compartment</th>
+                      <th>Ticket Number</th>
+                      <th>Submission Date</th>
+                      <th>Submission Time</th>
+                      <th>Application Number</th>
+                      <th>Counter Number</th>
+                      <th>User Id</th>
+                      <th>Train Number</th>
+                  </tr>
+                </thead>
+          <tbody>
             <% passengers.forEach(function(x){ %>
   
-            
-               <div>First Name:<%= x.F_NAME %></div> 
-               <div>Last Name:<%= x.L_NAME %></div>
-               <div>Compartment:<%= x.COMPTMENT %>></div>
-               <div>Ticket Number:<%= x.TIC_NUM %></div>
-               <div>Date:<%= x.SUB_DATE %></div> 
-               <div>Time:<%= x.SUB_TIME %></div>
-               <div>Application Number:<%= x.APP_NUM %></div>
-               <div>Counter Number:<%= x.CNUM %> </div>
-               <div>User id:<%= x.USER_ID %></div> 
-               <div>Train Number:<%= x.TNUM %></div>
-              <div>----------------------------------</div>
+            <tr>
+               <td><%= x.F_NAME %></td> 
+               <td><%= x.L_NAME %></td>
+               <td><%= x.COMPTMENT %>></td>
+               <td><%= x.TIC_NUM %></td>
+               <td><%= x.SUB_DATE %></td> 
+               <td><%= x.SUB_TIME %></td>
+               <td><%= x.APP_NUM %></td>
+               <td><%= x.CNUM %> </td>
+               <td><%= x.USER_ID %></td> 
+               <td><%= x.TNUM %></td>
+              </tr>
             <% }); %> 
+          </tbody>
+          </table>
         </div>
         <form class="col s12" action="/passhistory" method="POST">
           <div class="row">

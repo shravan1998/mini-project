@@ -30,20 +30,30 @@
           </div>
         </nav>
         <div>
-          
+            <table>
+                <thead>
+                  <tr>
+                      <th>Train Name</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>Number Of Seats</th>
+                      <th>Seats Available</th>
+                  </tr>
+                </thead>
+          <tbody>
             <% train.forEach(function(x){ %>
   
-            <form>
-               <div>Train Name:<%= x.TNAME %></div> 
-               <div>Source:<%= x.SOURCE %></div>
-               <div>Destination:<%= x.DEST %></div>               
-               <div>Train Number:<%= x.TNUM %></div> 
-               <div>Number Of Seats:<%= x.SEATS %></div>
-               <div>Seats Available:<%= x.AVAIL_SEATS %></div> 
-              
-            </form>
-            <div>------------------------------------------------------------------------------------</div>
+            <tr>
+               <td><%= x.TNAME %></td> 
+               <td><%= x.SOURCE %></td>
+               <td><%= x.DEST %></td>               
+               <td><%= x.TNUM %></td> 
+               <td><%= x.SEATS %></td>
+               <td><%= x.AVAIL_SEATS %></td>
+              </tr>   
             <% }); %> 
+          </tbody>
+          </table>
         </div>
     
         <form class="col s12" action="/history" method="POST">

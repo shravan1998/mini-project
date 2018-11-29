@@ -30,19 +30,30 @@
           </div>
         </nav>
         <div>
-          
+            <table>
+                <thead>
+                  <tr>
+                      <th>Platform</th>
+                      <th>Arrival Time</th>
+                      <th>Departure Time</th>
+                      <th>Train Number</th>
+                  </tr>
+                </thead>
+          <tbody>
             <% station.forEach(function(x){ %>
   
-            <form>
+            <tr>
               
-               <div>Platform:<textarea disabled><%= x.PLATFORM %></textarea></div>
-               <div>Arrival time:<textarea disabled><%= x.T_ARRIVE %></textarea></div>               
-               <div>Departure Time:<textarea disabled><%= x.T_DEPART %></textarea></div> 
-               <div>Train Number:<textarea disabled><%= x.TNUM %></textarea></div>
+               <td><%= x.PLATFORM %></td>
+               <td><%= x.T_ARRIVE %></td>               
+               <td><%= x.T_DEPART %></td> 
+               <td><%= x.TNUM %></td>
                 
+            </tr>
             
-            </form>
             <% }); %> 
+          </tbody>
+          </table>
         </div>
     
         
